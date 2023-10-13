@@ -1,4 +1,17 @@
-# Use the official "hello-world" image as the base image
-FROM hello-world
+FROM python:3.11-slim
 
-# There's no need to specify any additional instructions or commands
+ENV version=3.4.0
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    build-essential git ruby ruby-dev && \
+    pip install --no-cache-dir pre-commit==$version && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT []
+CMD []
+WORKDIR /work
+
+LABEL name=pre-commit version=$version \
+      maintainer="Dafydd Jones <dafydd@techneg.it>"
