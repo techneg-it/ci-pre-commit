@@ -13,4 +13,4 @@ repos:
     rev: v2.12.0.3
     hooks:
       - id: hadolint
-        args: [--ignore, DL3006]
+        args: [--failure-threshold, error]
