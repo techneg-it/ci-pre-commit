@@ -37,6 +37,8 @@ jobs:
               "@semantic-release/release-notes-generator",
               "@semantic-release/github"
             ]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   build-images:
     uses: dafyddj/workflow-docker-build/.github/workflows/build.yml@v1
     needs:
