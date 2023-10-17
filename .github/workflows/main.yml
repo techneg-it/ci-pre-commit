@@ -33,7 +33,10 @@ jobs:
           branches: |
             ["main"]
           plugins: |
-            [ "@semantic-release/commit-analyzer" ]
+            [ "@semantic-release/commit-analyzer",
+              "@semantic-release/release-notes-generator",
+              "@semantic-release/github"
+            ]
   build-images:
     uses: dafyddj/workflow-docker-build/.github/workflows/build.yml@v1
     needs:
