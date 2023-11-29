@@ -14,3 +14,9 @@ repos:
     hooks:
       - id: hadolint
         args: [--failure-threshold, error]
+  - repo: https://github.com/rubocop-hq/rubocop
+    rev: v1.57.0
+    hooks:
+      - id: rubocop
+        name: Check Ruby files with rubocop
+        args: [--debug]
