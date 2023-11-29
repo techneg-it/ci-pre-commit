@@ -40,7 +40,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   build-images:
-    uses: dafyddj/workflow-docker-build/.github/workflows/build.yml@v1
+    name: Run workflow
+    uses: dafyddj/workflow-docker-build/.github/workflows/build.yml@v2
     needs:
       - pre-commit
       - sem-rel
