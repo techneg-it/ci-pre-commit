@@ -13,7 +13,14 @@ repos:
     rev: v2.12.0.3
     hooks:
       - id: hadolint
+        name: Check Dockerfiles with hadolint
         args: [--failure-threshold, error]
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.27.3
+    hooks:
+      - id: check-renovate
+        name: Check Renovate config with check-jsonschema
+        args: ["--verbose"]
   - repo: https://github.com/rubocop-hq/rubocop
     rev: v1.57.0
     hooks:
