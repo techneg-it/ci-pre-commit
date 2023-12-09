@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "enabledManagers": [
-    "dockerfile"
+    "dockerfile",
+    "pip_requirements"
   ],
   "extends": [
     "config:recommended",
