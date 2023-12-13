@@ -1,9 +1,15 @@
 ---
 driver:
   name: docker
+  provision_command: |
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+      wget
 
 provisioner:
-  name: dummy
+  name: shell
+  command: |
+    git init
+    wget https://github.com/saltstack-formulas/template-formula/raw/master/.pre-commit-config.yaml
 
 verifier:
   name: inspec
