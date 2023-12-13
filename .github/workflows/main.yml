@@ -62,7 +62,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: codfish/semantic-release-action@v3
-        id: sem-rel
         with:
           branches: |
             ["main"]
