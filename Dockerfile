@@ -1,4 +1,4 @@
-FROM python:3.11.7-slim-bookworm@sha256:04db1f35625d657b1ed501a5da26854d057949d2e0003c1ea506f82968fbd7bd
+FROM python:3.11.7-slim-bookworm@sha256:628e414ed54d0c8e17b772d51406dba9216ccea024c6cc8c13d3dc3e9c776bde
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
