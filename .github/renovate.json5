@@ -39,5 +39,10 @@
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false,
     },
+    {
+      "matchManagers": ["pip_requirements"],
+      "excludePackageNames": ["pre-commit"],
+      "groupName": "pre-commit dependencies",
+    },
   ],
 }
