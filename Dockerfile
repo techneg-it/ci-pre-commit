@@ -12,6 +12,3 @@ RUN apt-get update && \
 ENTRYPOINT []
 CMD []
 WORKDIR /work
-
-LABEL name=pre-commit \
-      maintainer="Dafydd Jones <dafydd@techneg.it>"
