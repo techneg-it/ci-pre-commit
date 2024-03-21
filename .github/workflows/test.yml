@@ -28,7 +28,7 @@ jobs:
     permissions:
       contents: write
     with:
-      image-namespace: dafyddj
+      image-namespace: techneg
       image-repo: ci-pre-commit
     secrets:
       push-token: ${{ secrets.PUSH_TOKEN }}
