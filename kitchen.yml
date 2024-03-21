@@ -17,7 +17,7 @@ verifier:
 platforms:
   - name: test
     driver:
-      image: dafyddj/ci-pre-commit:local-test
+      image: techneg/ci-pre-commit:local-test
       platform: debian
 
 suites:
