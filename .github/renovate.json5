@@ -45,8 +45,7 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["python"],
-      "matchUpdateTypes": ["major", "minor"],
-      "enabled": false,
+      "separateMinorPatch": true,
     },
     {
       "matchManagers": ["pip_requirements"],
