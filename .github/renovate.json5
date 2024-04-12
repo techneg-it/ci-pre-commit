@@ -33,6 +33,16 @@
   },
   "packageRules": [
     {
+      "matchManagers": [
+        "dockerfile",
+        "pip_requirements",
+      ],
+      "extends": [
+        ":semanticPrefixFix",
+        "schedule:weekends",
+      ],
+    },
+    {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["python"],
       "matchUpdateTypes": ["major", "minor"],
