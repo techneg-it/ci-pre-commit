@@ -7,6 +7,9 @@
     "pip_requirements",
   ],
   "extends": [
+    ":automergeDigest",
+    ":automergeMinor",
+    ":semanticPrefixChore",
     "config:recommended",
     "docker:pinDigests",
   ],
@@ -27,18 +30,35 @@
       "datasourceTemplate": "github-tags",
       "autoReplaceStringTemplate": "_commit: {{#if currentDigest}}{{{currentDigest}}}{{else}}{{{currentValue}}}{{/if}} # __copier_update_needed {{{newValue}}}\n_src_path: gh:{{{depName}}}\n",
     },
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.schedule-version$"],
+      "matchStrings": [
+        "(?<currentValue>\\S+)\\n"
+      ],
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "techneg-it/ci-pre-commit",
+    },
   ],
   "git-submodules": {
     "enabled": true
   },
   "packageRules": [
     {
+      "matchFiles": [".schedule-version"],
+      "extends": [
+        ":semanticPrefixFix",
+        "schedule:weekly",
+      ],
+      "minimumReleaseAge": "1 day",
+      "platformAutomerge": false,
+    },
+    {
       "matchManagers": [
         "dockerfile",
         "pip_requirements",
       ],
       "extends": [
-        ":semanticPrefixFix",
         "schedule:weekends",
       ],
     },
