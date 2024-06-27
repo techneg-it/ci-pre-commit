@@ -51,7 +51,7 @@
         "schedule:weekly",
       ],
       "commitMessageAction": "",
-      "commitMessageExtra": "",
+      "commitMessageExtra": "({{prettyNewVersion}})",
       "commitMessageTopic": "Scheduled update",
       "minimumReleaseAge": "1 day",
       "platformAutomerge": false,
