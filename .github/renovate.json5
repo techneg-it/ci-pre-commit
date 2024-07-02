@@ -25,10 +25,11 @@
       "fileMatch": ["^.copier-answers.yml$"],
       "matchStrings": [
         "_commit: (?<currentValue>\\S+)\\n_src_path: gh:(?<depName>\\S+)\\n",
+        "_commit: (?<currentDigest>\\S+) # __copier_update_available (?<currentValue>\\S+)\\n_src_path: gh:(?<depName>\\S+)\\n",
         "_commit: (?<currentDigest>\\S+) # __copier_update_needed (?<currentValue>\\S+)\\n_src_path: gh:(?<depName>\\S+)\\n",
       ],
       "datasourceTemplate": "github-tags",
-      "autoReplaceStringTemplate": "_commit: {{#if currentDigest}}{{{currentDigest}}}{{else}}{{{currentValue}}}{{/if}} # __copier_update_needed {{{newValue}}}\n_src_path: gh:{{{depName}}}\n",
+      "autoReplaceStringTemplate": "_commit: {{#if currentDigest}}{{{currentDigest}}}{{else}}{{{currentValue}}}{{/if}} # __copier_update_available {{{newValue}}}\n_src_path: gh:{{{depName}}}\n",
     },
     {
       "customType": "regex",
@@ -74,6 +75,14 @@
       "matchManagers": ["pip_requirements"],
       "excludePackageNames": ["pre-commit"],
       "groupName": "pre-commit dependencies",
+    },
+    {
+      "matchManagers": ["git-submodules"],
+      "automerge": true,
+    },
+    {
+      "matchFiles": [".copier-answers.yml"],
+      "commitMessageSuffix": "available",
     },
   ],
 }
