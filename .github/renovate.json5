@@ -3,7 +3,10 @@
   "enabledManagers": [
     "copier",
     "custom.regex",
+<<<<<<< before updating
     "dockerfile",
+=======
+>>>>>>> after updating
     "git-submodules",
     "pip_requirements",
   ],
@@ -30,7 +33,7 @@
   },
   "packageRules": [
     {
-      "matchFiles": [".schedule-version"],
+      "matchFileNames": [".schedule-version"],
       "extends": [
         ":semanticPrefixFix",
         "schedule:weekly",
