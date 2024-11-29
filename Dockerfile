@@ -18,6 +18,14 @@ RUN : \
     && rm -rf /var/lib/apt/lists/* \
     && :
 
+RUN : \
+    && ARCH=$(uname -m) \
+    && PRECOMMIT_VERSION=$(pre-commit -V | awk '{print $2}' | awk -F. '{print $1}') \
+    && RUBY_VERSION=$(ruby -v | awk '{print $2}' | awk -F. '{print $1 "." $2}') \
+    && CI_CACHE_ID="pre-commit|$ARCH|$PRECOMMIT_VERSION|$PYTHON_VERSION|$RUBY_VERSION" \
+    && sed -i "/# If not running interactively,/i export CI_CACHE_ID=\"$CI_CACHE_ID\"\n" /etc/bash.bashrc \
+    && :
+
 ENTRYPOINT []
 CMD []
 WORKDIR /work
