@@ -8,6 +8,7 @@ driver:
 provisioner:
   name: shell
   command: |
+    git config --global init.defaultBranch main
     git init
     wget https://github.com/saltstack-formulas/template-formula/raw/master/.pre-commit-config.yaml
 
