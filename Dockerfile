@@ -23,7 +23,7 @@ RUN : \
     && PRECOMMIT_VERSION=$(pre-commit -V | awk '{print $2}' | awk -F. '{print $1}') \
     && RUBY_VERSION=$(ruby -v | awk '{print $2}' | awk -F. '{print $1 "." $2}') \
     && CI_CACHE_ID="pre-commit|$ARCH|$PRECOMMIT_VERSION|$PYTHON_VERSION|$RUBY_VERSION" \
-    && sed -i "/# If not running interactively,/i export CI_CACHE_ID=\"$CI_CACHE_ID\"\n" /etc/bash.bashrc \
+    && echo "$CI_CACHE_ID" > /.ci_cache_id \
     && :
 
 ENTRYPOINT []
