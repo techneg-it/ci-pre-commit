@@ -2,6 +2,8 @@ FROM python:3.13.1-slim-bookworm@sha256:f41a75c9cee9391c09e0139f7b49d4b1fbb11994
 
 SHELL ["/bin/bash", "-x", "-o", "pipefail", "-c"]
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 COPY requirements.txt .
 RUN : \
     && pip install --no-cache-dir -r requirements.txt \
@@ -9,11 +11,16 @@ RUN : \
 
 RUN : \
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends \
          build-essential \
          git \
          ruby \
          ruby-dev \
+    && :
+
+RUN : \
+    && apt-get update \
+    && apt-get upgrade \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && :

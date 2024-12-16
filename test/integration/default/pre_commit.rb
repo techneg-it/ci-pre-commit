@@ -14,5 +14,5 @@ end
 
 describe file('/.ci_cache_id') do
   it { should exist }
-  its('content') { should match /^pre-commit|/ } # rubocop:disable Lint/AmbiguousRegexpLiteral
+  its('content') { should match(/^pre-commit\|/) }
 end
