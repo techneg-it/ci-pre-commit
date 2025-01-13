@@ -46,5 +46,6 @@ jobs:
     with:
       image-namespace: techneg
       image-repo: ci-pre-commit
+      no-cache-filter: update
     secrets:
       push-token: ${{ secrets.PUSH_TOKEN }}

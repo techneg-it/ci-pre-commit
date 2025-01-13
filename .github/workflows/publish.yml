@@ -14,6 +14,7 @@ jobs:
       image-namespace: techneg
       image-repo: ci-pre-commit
       labels: org.opencontainers.image.authors=SaltStack Formulas <GitHub @saltstack-formulas>
+      no-cache-filter: update
     secrets:
       registry-password: ${{ secrets.REGISTRY_TOKEN }}
       registry-username: ${{ secrets.REGISTRY_USERNAME }}
