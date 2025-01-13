@@ -1,4 +1,4 @@
-FROM python:3.13.1-slim-bookworm@sha256:1127090f9fff0b8e7c3a1367855ef8a3299472d2c9ed122948a576c39addeaf1
+FROM python:3.13.1-slim-bookworm@sha256:1127090f9fff0b8e7c3a1367855ef8a3299472d2c9ed122948a576c39addeaf1 AS install
 
 SHELL ["/bin/bash", "-x", "-o", "pipefail", "-c"]
 
@@ -9,9 +9,10 @@ RUN : \
     && pip install --no-cache-dir -r requirements.txt \
     && :
 
+FROM install AS update
 RUN : \
     && apt-get update \
-    && apt-get install -y --no-install-recommends \
+    && apt-get install --yes --no-install-recommends \
          build-essential \
          git \
          ruby \
@@ -20,7 +21,7 @@ RUN : \
 
 RUN : \
     && apt-get update \
-    && apt-get upgrade \
+    && apt-get upgrade --yes \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && :

@@ -5,7 +5,7 @@ container_registry: docker.io
 image_authors: SaltStack Formulas <GitHub @saltstack-formulas>
 image_namespace: techneg
 image_repo: ci-pre-commit
-no_cache_filter: ''
+no_cache_filter: update
 release_is_scheduled: true
 repo_name: ci-pre-commit
 repo_namespace: techneg-it
