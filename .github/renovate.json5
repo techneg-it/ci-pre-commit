@@ -1,32 +1,18 @@
 {
-<<<<<<< before updating
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "enabledManagers": [
-    "copier",
-    "custom.regex",
-    "dockerfile",
-    "git-submodules",
-    "pip_requirements",
-  ],
-  "extends": [
-    ":automergeDigest",
-    ":automergeMinor",
-    ":semanticPrefixChore",
-    "config:recommended",
-    "docker:pinDigests",
-=======
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   enabledManagers: [
     'copier',
     'custom.regex',
+    'dockerfile',
     'git-submodules',
+    'pip_requirements',
   ],
   extends: [
     ':automergeDigest',
     ':automergeMinor',
     ':semanticPrefixChore',
     'config:recommended',
->>>>>>> after updating
+    'docker:pinDigests',
   ],
   customManagers: [
     {
@@ -56,34 +42,29 @@
       platformAutomerge: false,
     },
     {
-<<<<<<< before updating
-      "matchManagers": [
-        "dockerfile",
-        "pip_requirements",
+      matchManagers: [
+        'dockerfile',
+        'pip_requirements',
       ],
-      "extends": [
-        "schedule:weekends",
+      extends: [
+        'schedule:weekends',
       ],
     },
     {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["python"],
-      "separateMinorPatch": true,
+      matchDatasources: ['docker'],
+      matchPackageNames: ['python'],
+      separateMinorPatch: true,
     },
     {
-      "matchManagers": ["pip_requirements"],
-      "matchPackageNames": ["!pre-commit"],
-      "groupName": "pre-commit dependencies",
+      matchManagers: ['pip_requirements'],
+      matchPackageNames: ['!pre-commit'],
+      groupName: 'pre-commit dependencies',
     },
     {
-      "matchManagers": ["git-submodules"],
-      "automerge": true,
-=======
       matchManagers: [
         'git-submodules',
       ],
       automerge: true,
->>>>>>> after updating
     },
   ],
 }
