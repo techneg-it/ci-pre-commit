@@ -29,8 +29,9 @@ RUN : \
 RUN : \
     && ARCH=$(uname -m) \
     && PRECOMMIT_VERSION=$(pre-commit -V | awk '{print $2}' | awk -F. '{print $1}') \
+    && PY_MAJ_MIN_VERSION=$(echo $PYTHON_VERSION | awk -F. '{print $1 "." $2}') \
     && RUBY_VERSION=$(ruby -v | awk '{print $2}' | awk -F. '{print $1 "." $2}') \
-    && CI_CACHE_ID="pre-commit|$ARCH|$PRECOMMIT_VERSION|$PYTHON_VERSION|$RUBY_VERSION" \
+    && CI_CACHE_ID="pre-commit|$ARCH|$PRECOMMIT_VERSION|$PY_MAJ_MIN_VERSION|$RUBY_VERSION" \
     && echo "$CI_CACHE_ID" > /.ci_cache_id \
     && :
 
