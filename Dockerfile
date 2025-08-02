@@ -17,6 +17,7 @@ RUN : \
          git \
          ruby \
          ruby-dev \
+         time \
     && :
 
 RUN : \
