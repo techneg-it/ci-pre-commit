@@ -1,4 +1,4 @@
-FROM python:3.13.6-slim-bookworm@sha256:6f79e7a10bb7d0b0a50534a70ebc78823f941fba26143ecd7e6c5dca9d7d7e8a AS install
+FROM python:3.13.7-slim-bookworm@sha256:583fd1f7e26bad214a0792a722d597d2e8491fabc52d17558cbae5581ed625f0 AS install
 
 SHELL ["/bin/bash", "-x", "-o", "pipefail", "-c"]
 
