@@ -3,16 +3,24 @@
   enabledManagers: [
     'copier',
     'custom.regex',
+<<<<<<< before updating
     'dockerfile',
     'git-submodules',
     'pip_requirements',
+=======
+>>>>>>> after updating
   ],
   extends: [
+    'github>techneg-it/.github',
+    'github>techneg-it/.github:copier',
     ':automergeDigest',
     ':automergeMinor',
     ':semanticPrefixChore',
+<<<<<<< before updating
     'config:recommended',
     'docker:pinDigests',
+=======
+>>>>>>> after updating
   ],
   customManagers: [
     {
@@ -27,9 +35,6 @@
       depNameTemplate: 'techneg-it/ci-pre-commit',
     },
   ],
-  'git-submodules': {
-    enabled: true,
-  },
   packageRules: [
     {
       matchFileNames: [
@@ -45,6 +50,7 @@
       minimumReleaseAge: '1 day',
       platformAutomerge: false,
     },
+<<<<<<< before updating
     {
       matchManagers: [
         'dockerfile',
@@ -70,5 +76,7 @@
       ],
       automerge: true,
     },
+=======
+>>>>>>> after updating
   ],
 }
