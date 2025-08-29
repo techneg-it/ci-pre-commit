@@ -3,12 +3,8 @@
   enabledManagers: [
     'copier',
     'custom.regex',
-<<<<<<< before updating
     'dockerfile',
-    'git-submodules',
     'pip_requirements',
-=======
->>>>>>> after updating
   ],
   extends: [
     'github>techneg-it/.github',
@@ -16,11 +12,6 @@
     ':automergeDigest',
     ':automergeMinor',
     ':semanticPrefixChore',
-<<<<<<< before updating
-    'config:recommended',
-    'docker:pinDigests',
-=======
->>>>>>> after updating
   ],
   customManagers: [
     {
@@ -50,7 +41,6 @@
       minimumReleaseAge: '1 day',
       platformAutomerge: false,
     },
-<<<<<<< before updating
     {
       matchManagers: [
         'dockerfile',
@@ -70,13 +60,5 @@
       matchPackageNames: ['!pre-commit'],
       groupName: 'pre-commit dependencies',
     },
-    {
-      matchManagers: [
-        'git-submodules',
-      ],
-      automerge: true,
-    },
-=======
->>>>>>> after updating
   ],
 }
