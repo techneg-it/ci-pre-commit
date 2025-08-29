@@ -4,15 +4,14 @@
     'copier',
     'custom.regex',
     'dockerfile',
-    'git-submodules',
     'pip_requirements',
   ],
   extends: [
+    'github>techneg-it/.github',
+    'github>techneg-it/.github:copier',
     ':automergeDigest',
     ':automergeMinor',
     ':semanticPrefixChore',
-    'config:recommended',
-    'docker:pinDigests',
   ],
   customManagers: [
     {
@@ -27,9 +26,6 @@
       depNameTemplate: 'techneg-it/ci-pre-commit',
     },
   ],
-  'git-submodules': {
-    enabled: true,
-  },
   packageRules: [
     {
       matchFileNames: [
@@ -63,12 +59,6 @@
       matchManagers: ['pip_requirements'],
       matchPackageNames: ['!pre-commit'],
       groupName: 'pre-commit dependencies',
-    },
-    {
-      matchManagers: [
-        'git-submodules',
-      ],
-      automerge: true,
     },
   ],
 }
