@@ -15,6 +15,7 @@ RUN : \
     && apt-get install --yes --no-install-recommends \
          build-essential \
          git \
+         libyaml-dev \
          ruby \
          ruby-dev \
          time \

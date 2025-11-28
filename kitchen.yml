@@ -11,6 +11,15 @@ provisioner:
     git config --global init.defaultBranch main
     git init
     wget https://github.com/saltstack-formulas/template-formula/raw/master/.pre-commit-config.yaml
+    cat > /tmp/test_yaml.c << 'EOF'
+    #include <stdio.h>
+    #include <yaml.h>
+    
+    int main() {
+        printf("libyaml version: %s\n", yaml_get_version_string());
+        return 0;
+    }
+    EOF
 
 verifier:
   name: inspec
